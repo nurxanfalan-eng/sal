@@ -1,0 +1,12 @@
+node_modules/
+.env
+*.log
+.pm2/
+pids/
+logs/
+*.backup
+*.bak
+*.tar.gz
+*.zip
+.DS_Store
+Thumbs.db
