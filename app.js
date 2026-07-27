@@ -15,7 +15,7 @@ const MENU_DATA = {
       qty: 8,
       unit: 'ədəd',
       tagline: 'Sərhədsiz Ləzzət',
-      image: 'https://www.genspark.ai/api/files/s/eK0FUpFv',
+      image: 'ebicrunch.jpg',
       ingredients: ['Krevet', 'Krem Pendir', 'Xiyar', 'Düyü', 'Nori', 'Küncüt'],
       contents: null,
       gift: null,
@@ -29,7 +29,7 @@ const MENU_DATA = {
       qty: 8,
       unit: 'ədəd',
       tagline: 'İsti Krabın İmza Dadı',
-      image: 'https://www.genspark.ai/api/files/s/AkYNPNRV',
+      image: 'hotcrap.jpg',
       ingredients: ['Krab', 'Krem Pendir', 'Düyü', 'Nori', 'Panko'],
       contents: null,
       gift: null,
@@ -43,7 +43,7 @@ const MENU_DATA = {
       qty: 8,
       unit: 'ədəd',
       tagline: 'Hər Loxmada Alovlanan Krevet',
-      image: 'https://www.genspark.ai/api/files/s/ii5ANiub',
+      image: 'hotpravn.jpg',
       ingredients: ['Krevet', 'Krem Pendir', 'Düyü', 'Nori', 'Panko'],
       contents: null,
       gift: null,
@@ -57,7 +57,7 @@ const MENU_DATA = {
       qty: 8,
       unit: 'ədəd',
       tagline: 'Klassikləşmiş Ləzzətin Ünvanı',
-      image: 'https://www.genspark.ai/api/files/s/x3wnmiCa',
+      image: 'kaliforniya.jpg',
       ingredients: ['Krab', 'Krem Pendir', 'Kürü', 'Düyü', 'Xiyar', 'Nori'],
       contents: null,
       gift: null,
@@ -71,7 +71,7 @@ const MENU_DATA = {
       qty: 8,
       unit: 'ədəd',
       tagline: 'Sərin Dad Balansı',
-      image: 'https://www.genspark.ai/api/files/s/77RjtRcX',
+      image: 'alyaska',
       ingredients: ['Qızıl Balıq', 'Krem Pendir', 'Düyü', 'Xiyar', 'Nori', 'Küncüt'],
       contents: null,
       gift: null,
@@ -85,7 +85,7 @@ const MENU_DATA = {
       qty: 8,
       unit: 'ədəd',
       tagline: 'Fresh Roll Fresh Həyat — Əvəzsiz Ahəng',
-      image: 'https://www.genspark.ai/api/files/s/wD6a0DOL',
+      image: 'fresh.jpg',
       ingredients: ['Qar Krabı', 'Şüyüd', 'Krem Pendir', 'Düyü', 'Xiyar', 'Nori', 'Kimchi Sousu'],
       contents: null,
       gift: null,
@@ -101,7 +101,7 @@ const MENU_DATA = {
       qty: 36,
       unit: 'ədəd roll',
       tagline: '36 Ədəd Roll',
-      image: 'https://www.genspark.ai/api/files/s/NKKogsSL',
+      image: 'minimix3.jpg',
       ingredients: [],
       contents: [
         'Kalifornia (8 ədəd)',
@@ -120,7 +120,7 @@ const MENU_DATA = {
       qty: 36,
       unit: 'ədəd roll',
       tagline: '36 Ədəd Roll',
-      image: 'https://www.genspark.ai/api/files/s/93PmqIlk',
+      image: 'minimix2.jpg',
       ingredients: [],
       contents: [
         'Filadelfia (8 ədəd)',
@@ -141,7 +141,7 @@ const MENU_DATA = {
       qty: 44,
       unit: 'ədəd',
       tagline: 'Pulsuz Çatdırılma',
-      image: 'https://www.genspark.ai/api/files/s/tE1ojikg',
+      image: 'couple.jpg',
       ingredients: [],
       contents: [
         'Filadelfia (8 ədəd)',
@@ -161,7 +161,7 @@ const MENU_DATA = {
       qty: 46,
       unit: 'ədəd',
       tagline: 'Pulsuz Çatdırılma',
-      image: 'https://www.genspark.ai/api/files/s/ICFqEFr5',
+      image: 'flame.jpg',
       ingredients: [],
       contents: [
         'Filadelfia (8 ədəd)',
@@ -181,7 +181,7 @@ const MENU_DATA = {
       qty: 46,
       unit: 'ədəd',
       tagline: 'Pulsuz Çatdırılma',
-      image: 'https://www.genspark.ai/api/files/s/2w3D6mj6',
+      image: 'solomon.jpg',
       ingredients: [],
       contents: [
         'Filadelfia (8 ədəd)',
@@ -197,18 +197,8 @@ const MENU_DATA = {
 };
 
 const GALLERY_IMAGES = [
-  { src: 'https://www.genspark.ai/api/files/s/x3wnmiCa', name: 'Kalifornia Roll' },
-  { src: 'https://www.genspark.ai/api/files/s/77RjtRcX', name: 'Alyaska' },
-  { src: 'https://www.genspark.ai/api/files/s/eK0FUpFv', name: 'Ebi Crunch' },
-  { src: 'https://www.genspark.ai/api/files/s/AkYNPNRV', name: 'Hot Crab' },
-  { src: 'https://www.genspark.ai/api/files/s/ii5ANiub', name: 'Hot Prawn' },
-  { src: 'https://www.genspark.ai/api/files/s/wD6a0DOL', name: 'Fresh Roll' },
-  { src: 'https://www.genspark.ai/api/files/s/NKKogsSL', name: 'Mini Mix 2' },
-  { src: 'https://www.genspark.ai/api/files/s/93PmqIlk', name: 'Mini Mix 3' },
-  { src: 'https://www.genspark.ai/api/files/s/tE1ojikg', name: 'Couple Set' },
-  { src: 'https://www.genspark.ai/api/files/s/ICFqEFr5', name: 'Flame Set' },
-  { src: 'https://www.genspark.ai/api/files/s/2w3D6mj6', name: 'Salmon Set' },
-  { src: 'https://www.genspark.ai/api/files/s/dAazYmKb', name: 'Flame Set Detail' }
+  { src: 'kaliforniya.jpg', name: 'Kalifornia Roll' },
+  { src: 'flame.jpg', name: 'Flame Set Detail' }
 ];
 
 // ===== STATE =====
