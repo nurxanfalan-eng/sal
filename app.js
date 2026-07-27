@@ -71,7 +71,7 @@ const MENU_DATA = {
       qty: 8,
       unit: 'ədəd',
       tagline: 'Sərin Dad Balansı',
-      image: 'alyaska',
+      image: 'alyaska.jpg',
       ingredients: ['Qızıl Balıq', 'Krem Pendir', 'Düyü', 'Xiyar', 'Nori', 'Küncüt'],
       contents: null,
       gift: null,
