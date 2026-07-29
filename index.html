@@ -7,7 +7,7 @@
   <title>Sotto Sushi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Noto+Sans+Latin:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -29,6 +29,7 @@
       <a href="#" data-section="gallery" class="nav-link">Qalereya</a>
       <a href="#" data-section="about" class="nav-link">Haqqımızda</a>
       <a href="#" data-section="contact" class="nav-link">Əlaqə</a>
+      <a href="#" data-section="careers" class="nav-link">Vakansiyalar</a>
     </nav>
     <button class="cart-btn" id="cartBtn" aria-label="Səbət">
       <i class="fas fa-shopping-cart"></i>
@@ -188,6 +189,7 @@
     <div class="page-hero menu-hero">
       <div class="page-hero-overlay"></div>
       <div class="page-hero-content">
+        <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> Geri</button>
         <h1>Menyumuz</h1>
         <p>Seçdiyiniz məhsulu səbətə əlavə edin</p>
       </div>
@@ -195,24 +197,17 @@
 
     <section class="menu-section">
       <div class="container">
-        <!-- Category tabs -->
         <div class="menu-tabs" id="menuTabs">
           <button class="menu-tab active" data-cat="rolls">Rolllar</button>
           <button class="menu-tab" data-cat="mini-sets">Mini Setlər</button>
           <button class="menu-tab" data-cat="sets">Setlər</button>
         </div>
-
-        <!-- ROLLS -->
         <div class="menu-category active" id="cat-rolls">
           <div class="menu-grid" id="grid-rolls"></div>
         </div>
-
-        <!-- MINI SETS -->
         <div class="menu-category" id="cat-mini-sets">
           <div class="menu-grid" id="grid-mini-sets"></div>
         </div>
-
-        <!-- SETS -->
         <div class="menu-category" id="cat-sets">
           <div class="menu-grid" id="grid-sets"></div>
         </div>
@@ -225,6 +220,7 @@
     <div class="page-hero gallery-hero">
       <div class="page-hero-overlay"></div>
       <div class="page-hero-content">
+        <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> Geri</button>
         <h1>Qalereya</h1>
         <p>Ən yaxşı görüntülərimiz</p>
       </div>
@@ -241,6 +237,7 @@
     <div class="page-hero about-hero">
       <div class="page-hero-overlay"></div>
       <div class="page-hero-content">
+        <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> Geri</button>
         <h1>Haqqımızda</h1>
         <p>Sotto Sushi – Bakının ən sevimli sushi restoranı</p>
       </div>
@@ -272,12 +269,10 @@
             </div>
           </div>
           <div class="about-page-imgs">
-            <img src="https://www.genspark.ai/api/files/s/NKKogsSL" alt="Mini Mix Set" loading="lazy" class="about-img-1" />
-            <img src="https://www.genspark.ai/api/files/s/ii5ANiub" alt="Hot Prawn" loading="lazy" class="about-img-2" />
+            <img src="minimix3.jpg" alt="Mini Mix Set" loading="lazy" class="about-img-1" />
+            <img src="hotpravn.jpg" alt="Hot Prawn" loading="lazy" class="about-img-2" />
           </div>
         </div>
-
-        <!-- Hours in about page too -->
         <div class="about-hours">
           <h2 class="text-center">İş Saatları</h2>
           <div class="hours-grid">
@@ -307,6 +302,7 @@
     <div class="page-hero contact-hero">
       <div class="page-hero-overlay"></div>
       <div class="page-hero-content">
+        <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> Geri</button>
         <h1>Əlaqə</h1>
         <p>Bizimlə əlaqə saxlayın</p>
       </div>
@@ -339,6 +335,14 @@
                 <strong>@sottosushi</strong>
               </div>
             </a>
+            <a href="https://www.tiktok.com/@sottosushi?lang=az&is_from_webapp=1&sender_device=mobile&sender_web_id=7668066085250123282" target="_blank" rel="noopener" class="contact-page-card tiktok">
+              <div class="cp-icon"><i class="fab fa-tiktok"></i></div>
+              <div class="cp-text">
+                <h3>TikTok</h3>
+                <p>Videolarımıza baxın</p>
+                <strong>@sottosushi</strong>
+              </div>
+            </a>
             <a href="https://maps.app.goo.gl/JRdnmuJs9ZrhbVMs5" target="_blank" rel="noopener" class="contact-page-card map">
               <div class="cp-icon"><i class="fas fa-map-marker-alt"></i></div>
               <div class="cp-text">
@@ -360,6 +364,101 @@
       </div>
     </section>
   </div><!-- end page-contact -->
+
+  <!-- ========== CAREERS PAGE ========== -->
+  <div id="page-careers" class="page">
+    <div class="page-hero careers-hero">
+      <div class="page-hero-overlay"></div>
+      <div class="page-hero-content">
+        <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> Geri</button>
+        <h1>Vakansiyalar</h1>
+        <p>Sotto Sushi ailəsinə qoşulun</p>
+      </div>
+    </div>
+    <section class="careers-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Açıq Vəzifələr</span>
+          <h2>Komandamıza qoşulun</h2>
+        </div>
+        <div class="careers-grid">
+
+          <!-- Vacancy 1 -->
+          <div class="career-card" id="career-1">
+            <div class="career-card-header">
+              <div class="career-icon"><i class="fas fa-utensils"></i></div>
+              <div class="career-badge career-badge-full">Tam ştat</div>
+            </div>
+            <div class="career-card-body">
+              <h3>Sushi Aşpazı</h3>
+              <p class="career-location"><i class="fas fa-map-marker-alt"></i> Bakı, Azərbaycan</p>
+              <p class="career-desc">Yapon mətbəxinə həvəsli, sushi hazırlamaqda təcrübəli aşpaz axtarırıq. Premium komanda, yaxşı maaş.</p>
+              <ul class="career-requirements">
+                <li><i class="fas fa-check"></i> Minimum 1 il təcrübə</li>
+                <li><i class="fas fa-check"></i> Yapon mətbəxi biliyi</li>
+                <li><i class="fas fa-check"></i> Komanda ilə işləmə bacarığı</li>
+              </ul>
+            </div>
+            <div class="career-card-footer">
+              <span class="career-salary">800 – 1200 ₼</span>
+              <a href="https://wa.me/994559406018?text=Sushi%20A%C5%9Fpaz%C4%B1%20vakansiyas%C4%B1%20il%C9%99%20maraqlan%C4%B1ram" target="_blank" rel="noopener" class="btn btn-primary career-apply-btn">
+                <i class="fab fa-whatsapp"></i> Müraciət Et
+              </a>
+            </div>
+          </div>
+
+          <!-- Vacancy 2 -->
+          <div class="career-card" id="career-2">
+            <div class="career-card-header">
+              <div class="career-icon"><i class="fas fa-motorcycle"></i></div>
+              <div class="career-badge career-badge-full">Tam ştat</div>
+            </div>
+            <div class="career-card-body">
+              <h3>Kuryer</h3>
+              <p class="career-location"><i class="fas fa-map-marker-alt"></i> Bakı, Azərbaycan</p>
+              <p class="career-desc">Sürətli, etibarlı çatdırılma üçün kuryer axtarırıq. Sürücülük vəsiqəsi tələb olunur.</p>
+              <ul class="career-requirements">
+                <li><i class="fas fa-check"></i> Sürücülük vəsiqəsi (B kateqoriya)</li>
+                <li><i class="fas fa-check"></i> Bakı şəhərini bilmək</li>
+                <li><i class="fas fa-check"></i> Məsuliyyətlilik</li>
+              </ul>
+            </div>
+            <div class="career-card-footer">
+              <span class="career-salary">600 – 900 ₼</span>
+              <a href="https://wa.me/994559406018?text=Kuryer%20vakansiyas%C4%B1%20il%C9%99%20maraqlan%C4%B1ram" target="_blank" rel="noopener" class="btn btn-primary career-apply-btn">
+                <i class="fab fa-whatsapp"></i> Müraciət Et
+              </a>
+            </div>
+          </div>
+
+          <!-- Vacancy 3 -->
+          <div class="career-card" id="career-3">
+            <div class="career-card-header">
+              <div class="career-icon"><i class="fas fa-headset"></i></div>
+              <div class="career-badge career-badge-part">Yarı ştat</div>
+            </div>
+            <div class="career-card-body">
+              <h3>Zəng Mərkəzi Operatoru</h3>
+              <p class="career-location"><i class="fas fa-map-marker-alt"></i> Bakı, Azərbaycan</p>
+              <p class="career-desc">Müştəri sifarişlərini qəbul edən, ünsiyyət qurmağı sevən operator axtarırıq. Xoş iş mühiti.</p>
+              <ul class="career-requirements">
+                <li><i class="fas fa-check"></i> Güclü ünsiyyət bacarığı</li>
+                <li><i class="fas fa-check"></i> Azərbaycan dili – mükəmməl</li>
+                <li><i class="fas fa-check"></i> Kompüter bilikləri</li>
+              </ul>
+            </div>
+            <div class="career-card-footer">
+              <span class="career-salary">500 – 700 ₼</span>
+              <a href="https://wa.me/994559406018?text=Zəng%20Mərkəzi%20Operatoru%20vakansiyas%C4%B1%20il%C9%99%20maraqlan%C4%B1ram" target="_blank" rel="noopener" class="btn btn-primary career-apply-btn">
+                <i class="fab fa-whatsapp"></i> Müraciət Et
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div><!-- end page-careers -->
 
 </div><!-- end #app -->
 
@@ -394,45 +493,6 @@
   <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
   <div class="modal-content" id="modalContent"></div>
 </div>
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">SOTTO<span>SUSHI</span></div>
-        <p>Bakıda ən dadlı sushi. Hər loxmada Yaponiya ruhu.</p>
-        <div class="footer-socials">
-          <a href="https://wa.me/994559406018" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="https://www.instagram.com/sottosushi/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://maps.app.goo.gl/JRdnmuJs9ZrhbVMs5" target="_blank" rel="noopener" aria-label="Xəritə"><i class="fas fa-map-marker-alt"></i></a>
-        </div>
-      </div>
-      <div class="footer-links">
-        <h4>Keçidlər</h4>
-        <ul>
-          <li><a href="#" data-section="home">Ana Səhifə</a></li>
-          <li><a href="#" data-section="menu">Menyu</a></li>
-          <li><a href="#" data-section="gallery">Qalereya</a></li>
-          <li><a href="#" data-section="about">Haqqımızda</a></li>
-          <li><a href="#" data-section="contact">Əlaqə</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <h4>Əlaqə</h4>
-        <ul>
-          <li><i class="fas fa-phone"></i> <a href="tel:+994559406018">+994 55 940 60 18</a></li>
-          <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/994559406018" target="_blank" rel="noopener">WhatsApp</a></li>
-          <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/sottosushi/" target="_blank" rel="noopener">@sottosushi</a></li>
-          <li><i class="fas fa-clock"></i> Gündəlik: 10:00 – 23:00</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Sotto Sushi. Bütün hüquqlar qorunur.</p>
-    </div>
-  </div>
-</footer>
 
 <script src="app.js"></script>
 </body>
