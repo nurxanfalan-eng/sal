@@ -1,9 +1,116 @@
 /* ===================================
    SOTTO SUSHI - Main Application JS
    Optimized & Enhanced Version
+   + Supabase Integration
    =================================== */
 
 'use strict';
+
+// ===== SUPABASE CONFIG =====
+const SUPABASE_URL  = 'https://hkqxxjqfcivcwfftjbyo.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhrcXh4anFmY2l2Y3dmZnRqYnlvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU2ODA3OTAsImV4cCI6MjEwMTI1Njc5MH0.A1FPHK8Dtj1iuTtWbCYfIigsN6-N8gYD3ospVBIEj64';
+
+// ===== TRACKING HELPERS =====
+function getUtmParam(name) {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    return params.get(name) || null;
+  } catch { return null; }
+}
+
+function detectSource() {
+  const ref = document.referrer || '';
+  const utm = getUtmParam('utm_source');
+  if (utm) return utm;
+  if (/facebook\.com|fb\.com|fbclid/i.test(ref + window.location.search)) return 'Facebook';
+  if (/instagram\.com/i.test(ref)) return 'Instagram';
+  if (/google\./i.test(ref)) return 'Google';
+  if (/tiktok\.com/i.test(ref)) return 'TikTok';
+  if (ref && ref !== '') return 'Referral';
+  return 'Direct';
+}
+
+function detectDevice() {
+  return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
+}
+
+function detectBrowser() {
+  const ua = navigator.userAgent;
+  if (/Edg\//i.test(ua))     return 'Edge';
+  if (/OPR\//i.test(ua))     return 'Opera';
+  if (/Chrome\//i.test(ua))  return 'Chrome';
+  if (/Firefox\//i.test(ua)) return 'Firefox';
+  if (/Safari\//i.test(ua))  return 'Safari';
+  return 'Other';
+}
+
+function detectOS() {
+  const ua = navigator.userAgent;
+  if (/Windows/i.test(ua))      return 'Windows';
+  if (/Android/i.test(ua))      return 'Android';
+  if (/iPhone|iPad|iPod/i.test(ua)) return 'iOS';
+  if (/Mac OS/i.test(ua))       return 'macOS';
+  if (/Linux/i.test(ua))        return 'Linux';
+  return 'Other';
+}
+
+// ===== SUPABASE ORDER WRITER =====
+async function saveOrderToSupabase(cartItems) {
+  try {
+    const now        = new Date().toISOString();
+    const pageUrl    = window.location.href;
+    const source     = detectSource();
+    const campaign   = getUtmParam('utm_campaign');
+    const medium     = getUtmParam('utm_medium');
+    const referrer   = document.referrer || null;
+    const device     = detectDevice();
+    const browser    = detectBrowser();
+    const os         = detectOS();
+
+    // Hər cart item üçün ayrı sətir yaz
+    const rows = cartItems.map(entry => {
+      const item     = getItemById(entry.id);
+      const unitPrice = item ? item.price : 0;
+      const total    = parseFloat((unitPrice * entry.count).toFixed(2));
+      return {
+        customer_name:    null,        // WhatsApp-da müştəri özü yazır
+        customer_phone:   null,        // WhatsApp-da müştəri özü yazır
+        product_name:     item ? item.name : entry.id,
+        quantity:         entry.count,
+        price:            parseFloat(unitPrice.toFixed(2)),
+        total_price:      total,
+        created_at:       now,
+        page_url:         pageUrl,
+        source:           source,
+        campaign:         campaign,
+        medium:           medium,
+        referrer:         referrer,
+        device:           device,
+        browser:          browser,
+        operating_system: os
+      };
+    });
+
+    const response = await fetch(SUPABASE_URL + '/rest/v1/orders', {
+      method:  'POST',
+      headers: {
+        'Content-Type':  'application/json',
+        'apikey':        SUPABASE_ANON,
+        'Authorization': 'Bearer ' + SUPABASE_ANON,
+        'Prefer':        'return=minimal'
+      },
+      body: JSON.stringify(rows)
+    });
+
+    if (!response.ok) {
+      const errText = await response.text();
+      console.error('[Supabase] Order save error:', response.status, errText);
+    }
+  } catch (err) {
+    // Supabase xətası WhatsApp sifarişini bloklamasın
+    console.error('[Supabase] Unexpected error:', err);
+  }
+}
 
 // ===== DATA =====
 const MENU_DATA = {
@@ -327,8 +434,8 @@ $cartBtn.addEventListener('click', openCart);
 $cartClose.addEventListener('click', closeCart);
 $cartOverlay.addEventListener('click', closeCart);
 
-// ===== ORDER via WhatsApp (instant, no freezing) =====
-$orderBtn.addEventListener('click', () => {
+// ===== ORDER via WhatsApp + Supabase =====
+$orderBtn.addEventListener('click', async () => {
   if (cart.length === 0) return;
 
   const lines = [];
@@ -344,6 +451,10 @@ $orderBtn.addEventListener('click', () => {
 
   const totalStr = total % 1 === 0 ? total + '' : total.toFixed(2);
   const msg = '🍣 *Sotto Sushi Sifarişi*\n\n' + lines.join('\n') + '\n\n💰 *Cəmi: ' + totalStr + ' ₼*\n\nSifariş üçün əlaqə saxlayın.';
+
+  // Supabase-ə sifariş məlumatlarını yaz (arxa planda, WhatsApp-ı bloklamır)
+  const cartSnapshot = cart.map(e => ({ id: e.id, count: e.count }));
+  saveOrderToSupabase(cartSnapshot);
 
   // Close cart first, then open WhatsApp
   closeCart();
